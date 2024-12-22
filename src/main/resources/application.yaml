@@ -16,3 +16,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  flyway:
+    enabled: true
+  docker:
+    compose:
+      enabled: false

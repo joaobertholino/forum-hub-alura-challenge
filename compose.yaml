@@ -21,14 +21,14 @@ services:
       POSTGRES_PASSWORD: postgres123
       POSTGRES_DB: forum-hub-alura-challenge
     ports:
-      - '5432'
+      - '5432:5432'
   #  Redis cache database configuration
   redis:
     container_name: redis-cache-database
     restart: always
     image: redis:7.4.1
     ports:
-      - '6379'
+      - '6379:6379'
   #  Applications configurations
   application-one: &app
     container_name: application-instance-one
