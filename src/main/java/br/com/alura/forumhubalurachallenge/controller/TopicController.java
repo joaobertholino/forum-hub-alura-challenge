@@ -1,5 +1,6 @@
 package br.com.alura.forumhubalurachallenge.controller;
 
+import br.com.alura.forumhubalurachallenge.mapper.request.TopicRequest;
 import br.com.alura.forumhubalurachallenge.mapper.response.TopicResponse;
 import br.com.alura.forumhubalurachallenge.service.TopicService;
 import lombok.RequiredArgsConstructor;
@@ -18,5 +19,10 @@ public class TopicController {
 	@GetMapping(value = "/all", produces = "application/json")
 	public ResponseEntity<List<TopicResponse>> findAllTopics() {
 		return ResponseEntity.status(HttpStatus.OK).body(this.topicService.findAllTopics());
+	}
+
+	@PostMapping(value = "/save", produces = "application/json")
+	public ResponseEntity<TopicResponse> saveNewTopic(@RequestBody TopicRequest topicRequest) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(this.topicService.saveNewTopic(topicRequest));
 	}
 }
