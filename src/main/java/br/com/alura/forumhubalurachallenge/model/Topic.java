@@ -50,6 +50,6 @@ public class Topic extends BaseEntity {
 
 	@NotEmpty(message = "The answers topic must not be empty.")
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, mappedBy = "topic")
-	@JoinColumn(nullable = false, name = "topic_answers")
+	@Column(nullable = false, name = "topic_answers")
 	private List<Answer> answers;
 }

@@ -37,6 +37,6 @@ public class User extends BaseEntity {
 
 	@NotEmpty(message = "The user profiles list cannot be null and void.")
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(nullable = false, name = "user_profiles")
+	@JoinTable(joinColumns = @JoinColumn(nullable = false, name = "user_profiles"))
 	private List<Profile> profiles;
 }

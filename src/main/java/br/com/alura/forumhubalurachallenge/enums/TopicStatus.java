@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum TopicStatus {
 	ACTIVE("Active"),
-	NO_ACTIVE("No Active");
+	CLOSED("Closed");
 
 	private final String status;
 }
