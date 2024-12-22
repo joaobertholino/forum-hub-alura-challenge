@@ -1,9 +1,7 @@
 package br.com.alura.forumhubalurachallenge.model;
 
 import br.com.alura.forumhubalurachallenge.enums.CourseCategory;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -25,5 +23,6 @@ public class Course extends BaseEntity {
 
 	@NotNull(message = "The course category cannot be null.")
 	@Column(nullable = false, name = "course_category")
+	@Enumerated(value = EnumType.STRING)
 	private CourseCategory courseCategory;
 }
