@@ -25,4 +25,10 @@ public class TopicController {
 	public ResponseEntity<TopicResponse> saveNewTopic(@RequestBody TopicRequest topicRequest) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.topicService.saveNewTopic(topicRequest));
 	}
+
+	@DeleteMapping(value = "/delete", produces = "application/json")
+	public ResponseEntity<Void> deleteTopicByTitle(@RequestParam String topicTitle) {
+		this.topicService.deleteTopicByTitle(topicTitle);
+		return ResponseEntity.status(HttpStatus.OK).build();
+	}
 }

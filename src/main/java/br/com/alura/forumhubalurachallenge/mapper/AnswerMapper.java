@@ -12,5 +12,7 @@ public interface AnswerMapper {
 	AnswerResponse entityToResponse(Answer answer);
 
 	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "createDate", expression = "java(LocalDateTime.now())")
+	@Mapping(target = "topic", ignore = true)
 	Answer requestToEntity(AnswerRequest answerRequest);
 }
