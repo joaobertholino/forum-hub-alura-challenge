@@ -15,7 +15,6 @@ public interface TopicMapper {
 	List<TopicResponse> entityListToResponseList(List<Topic> topics);
 
 	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "answers", ignore = true)
 	@Mapping(target = "createDate", expression = "java(LocalDateTime.now())")
 	@Mapping(target = "status", expression = "java(TopicStatus.ACTIVE)")
 	Topic requestToEntity(TopicRequest topicRequest);

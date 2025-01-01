@@ -1,5 +1,7 @@
 package br.com.alura.forumhubalurachallenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,6 +24,7 @@ public class Answer extends BaseEntity {
 	@Column(nullable = false, length = 150, name = "answer_message")
 	private String message;
 
+	@JsonBackReference
 	@NotNull(message = "The response topic cannot be null.")
 	@ManyToOne(optional = false)
 	@JoinColumn(nullable = false, name = "answer_topic")

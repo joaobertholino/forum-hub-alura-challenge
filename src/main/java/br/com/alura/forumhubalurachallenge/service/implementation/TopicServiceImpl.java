@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,9 +28,14 @@ public class TopicServiceImpl implements TopicService {
 	}
 
 	@Override
-	@Transactional
 	public TopicResponse saveNewTopic(TopicRequest topicRequest) {
 		Topic topicSaved = this.topicRepository.save(this.topicMapper.requestToEntity(topicRequest));
 		return this.topicMapper.entityToResponse(topicSaved);
+	}
+
+	@Override
+	public void deleteTopicByTitle(String topicTitle) {
+		Topic topic = this.topicRepository.findTopicByTitle(topicTitle).orElseThrow();
+		this.topicRepository.deleteTopicByTitle(topic.getTitle());
 	}
 }
